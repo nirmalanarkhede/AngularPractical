@@ -1,0 +1,18 @@
+<form [formGroup]="signinform">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="signinform.invalid">
+        Please enter email address
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mobile Number</mat-label>
+      <input matInput formControlName="mob_no" maxlength="10" minlength="10" />
+      <mat-error *ngIf="signinform.invalid">
+        Please enter mobile number
+      </mat-error>
+    </mat-form-field>
+    <button mat-button (click)="submit()">Submit</button>
+  </form>
+  

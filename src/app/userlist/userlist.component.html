@@ -1,0 +1,34 @@
+<table class="border_all">
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Status</th>
+    <th>Post</th>
+    <th>Comments</th>
+  </thead>
+
+  <tbody *ngFor="let item of userdata">
+    <td>{{ item.id }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.email }}</td>
+    <td>{{ item.gender }}</td>
+    <td>{{ item.status }}</td>
+    <td (click)="getposts(item.id)">View Post</td>
+    <td (click)="getcomments(item.id)">View Comments</td>
+  </tbody>
+</table>
+<div *ngIf="ispostclick">
+  <h1>Posts</h1>
+  <div *ngFor="let item of posts">
+    <span (click)="getcomments(item.id)"> {{item.title }}</span>
+     </div>
+</div>
+
+<div *ngIf="iscommentclick">
+    <h1>Comments</h1>
+    <div *ngFor="let item of comments">
+      <span (click)="getcomments(item.id)"> {{item.name }}</span>
+       </div>
+  </div>
